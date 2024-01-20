@@ -4,8 +4,7 @@ import Lottie from "lottie-react";
 import { useEffect } from "react";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import animationlottie2 from "../../assets/animation/faq.json";
-
-import animationlottie1 from "../../assets/animation/loading.json";
+import CommonContainer from "../Shared/CommonContainer";
 
 const questions = [
   {
@@ -48,9 +47,7 @@ const questions = [
     content:
       "Yes, we value your feedback and needs. If you're looking for a specific medical product that is not currently available on our shop, you can submit a product request through our website. Our team will review your request and make efforts to expand our product offerings.",
   },
- 
 ];
-
 
 const FAQ = () => {
   useEffect(() => {
@@ -66,42 +63,40 @@ const FAQ = () => {
   }));
 
   return (
-    <>
-      <SectionTitle heading={"Frequently Asked Question"}></SectionTitle>
-
-      <div className="lg:grid mt-10 lg:grid-cols-2 p-10 mx-auto flex flex-col-reverse ">
-        <div
-          data-aos="fade-right"
-          data-aos-duration="800"
-          className="w-1/8 mb-10 md:mb-0 mx-auto"
-        >
-          <Lottie animationData={animationlottie2} loop={true} />
-        </div>
-
-        <div>
-          {questions.map((question, index) => (
-            <div
-              key={index}
-              data-aos={aosProperties[index]?.property}
-              data-aos-duration={aosProperties[index]?.duration}
-              tabIndex={0}
-              className="collapse collapse-arrow border-2 border-sky-500  m-2 rounded-box"
-            >
-              <div className="collapse-title text-xl font-semibold">
-                {question.title}
+    <div>
+      <CommonContainer>
+        <SectionTitle heading={"Frequently Asked Question"} />
+        <div className="lg:grid mt-10 lg:grid-cols-2 p-10 mx-auto flex flex-col-reverse">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="800"
+            className="w-1/8 mb-10 md:mb-0 mx-auto"
+          >
+            <Lottie animationData={animationlottie2} loop={true} />
+          </div>
+          <div>
+            {questions.map((question, index) => (
+              <div
+                key={index}
+                data-aos={aosProperties[index]?.property}
+                data-aos-duration={aosProperties[index]?.duration}
+                tabIndex={0}
+                className="collapse collapse-arrow border-2 border-sky-500  m-2 rounded-box"
+              >
+                <div className="collapse-title text-xl font-semibold">
+                  {question.title}
+                </div>
+                <div className="collapse-content">
+                  <p className="text-sm font-semibold text-yellow-500">
+                    {question.content}
+                  </p>
+                </div>
               </div>
-              <div className="collapse-content">
-                <p className="text-sm font-semibold text-yellow-500">
-                  {question.content}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </>
+      </CommonContainer>
+    </div>
   );
 };
-
-// eslint-disable-next-line react-refresh/only-export-components
 export default FAQ;
