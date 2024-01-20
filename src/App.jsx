@@ -17,7 +17,9 @@ const App = () => {
     <div>
       <userDataContext.Provider value={[loggInUser]}>
         <Provider store={store}>
-          <RouterProvider router={router} />
+          <div className="max-w-screen-4xl mx-auto bg-base-300  ">
+            <RouterProvider router={router} />
+          </div>
         </Provider>
         <Toaster />
       </userDataContext.Provider>

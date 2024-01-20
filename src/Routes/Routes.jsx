@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import Dashboard from "../Layouts/Dashboard";
 import Main from "../Layouts/Main";
 import AboutUs from "../Pages/FooterComponents/AboutUs";
 import ContactUs from "../Pages/FooterComponents/ContactUs";
@@ -9,25 +8,10 @@ import News from "../Pages/FooterComponents/News";
 import Login from "../Pages/Login/Login";
 import NotFound from "../Pages/Shared/NotFound";
 import SignUp from "../Pages/SignUp/SignUp";
-import AllProductPage from "../Pages/products/AllProductPage";
 
-import OrderConfirmed from "../Pages/Dashboard/OrderConfirmed";
-import PlaceOrder from "../Pages/Home/PlaceOrder";
 import Home from "./../Pages/Home/Home";
-import SingleProductCard from "./../Pages/SingleProductCard/SingleProductCard";
-import Prp from "./../Pages/products/Prp";
-import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
-  {
-    path: "place-order",
-    element: (
-      <PrivateRoute>
-        <PlaceOrder />
-      </PrivateRoute>
-    ),
-  },
-
   {
     path: "/",
     element: <Main></Main>,
@@ -43,25 +27,6 @@ export const router = createBrowserRouter([
       {
         path: "login",
         element: <Login></Login>,
-      },
-
-      {
-        path: "product-request",
-        element: (
-          <PrivateRoute>
-            <Prp />
-          </PrivateRoute>
-        ),
-      },
-
-      {
-        path: "/products/category",
-        element: <AllProductPage />,
-      },
-
-      {
-        path: "products/:id",
-        element: <SingleProductCard />,
       },
 
       {
@@ -82,23 +47,7 @@ export const router = createBrowserRouter([
         path: "about-us",
         element: <AboutUs />,
       },
-
-      {
-        path: "order-confirmed",
-        element: <OrderConfirmed />,
-      },
     ],
-  },
-
-  {
-    path: "dashboard",
-    element: (
-      <PrivateRoute>
-        {" "}
-        <Dashboard />{" "}
-      </PrivateRoute>
-    ),
-    children: [],
   },
 
   {

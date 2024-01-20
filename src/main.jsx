@@ -15,9 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
       <AuthProvider>
         <HelmetProvider>
-          <div className="max-w-screen-2xl   mx-auto w-full">
-            <App />
-          </div>
+          <App />
         </HelmetProvider>
       </AuthProvider>
     </React.StrictMode>
